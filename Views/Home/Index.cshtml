@@ -1,0 +1,46 @@
+﻿@using Demo2.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h2 class="display-3">Osoby</h2>
+    <p>Demo App</p>
+</div>
+<br/>
+<div class="row">
+    <div class="table-responsive">
+        <table class=" = table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0; }
+                @foreach (var item in Model)
+                {
+                    i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>
+                        <a href="Details/Details/@item.Id" class="alert alert-info" style="margin-right: 5px">Szczegóły</a>
+                        <a href="Edit/EditPerson/@item.Id" class="alert alert-warning" style="margin-right: 5px">Edytuj</a>
+                        <a href="Delete/DeletePerson/@item.Id" class="alert alert-danger">Usuń</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <a href="Add/AddPerson" class="btn alert-success">
+            <i class="fa fa-plus"></i>Dodaj osobe
+        </a>
+    </div>
+</div>

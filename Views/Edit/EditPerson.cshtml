@@ -1,0 +1,42 @@
+﻿@model Demo2.Models.Person
+@{
+    ViewData["Title"] = "EditPerson";
+}
+<h1>Edytuj Osobę</h1>
+<hr />
+<div>
+    <div>
+        <h3>Wpisz nowe dane osoby</h3>
+        @using (Html.BeginForm("EditPerson", "Edit", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Imię</label>
+                        @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control", @placeholder = "", @id = "Firstname" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Nazwisko</label>
+                        @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", @placeholder = "", @id = "Lastname" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <button type="submit" class="btn btn-success">Zapisz</button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary submit-btn">Powrót</a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+

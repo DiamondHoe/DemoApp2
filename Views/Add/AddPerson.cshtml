@@ -1,0 +1,41 @@
+﻿@using Demo2.Models
+@model Person
+@{
+    ViewData["Title"] = "AddPerson";
+}
+
+<h1>Dodaj osobę</h1>
+<hr />
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("AddPerson", "Add", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Imię</label>
+                        @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control", @placeholder = "", @id = "Firstname" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Nazwisko</label>
+                        @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", @placeholder = "", @id = "Lastname" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <button type="submit" class="btn btn-success">Zapisz</button>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary submit-btn">Powrót</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
