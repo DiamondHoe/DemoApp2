@@ -24,12 +24,14 @@ namespace Demo2.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string message)
         {
             var values = GetContext().People.ToList();
+            ViewBag.Message = message;
             return View(values);
         }
-       
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

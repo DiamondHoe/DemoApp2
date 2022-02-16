@@ -2,12 +2,21 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h2 class="display-3">Osoby</h2>
     <p>Demo App</p>
 </div>
 <br/>
+<div>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript" charset="utf-8">
+                    window.onload = function () {
+                        alert("@Html.Raw(ViewBag.Message)");
+                    }
+        </script>
+    }
+</div>
 <div class="row">
     <div class="table-responsive">
         <table class=" = table table-striped">
@@ -40,7 +49,7 @@
     </div>
     <div class="row">
         <a href="Add/AddPerson" class="btn alert-success">
-            <i class="fa fa-plus"></i>Dodaj osobe
+            <i class="fa fa-plus"></i>Dodaj osobę
         </a>
     </div>
 </div>

@@ -44,7 +44,7 @@ namespace Demo2.Controllers
             var person = await context.People.FindAsync(id);
             context.People.Remove(person);
             await context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { message = "Pomyślnie usunięto osobę" });
         }
 
         public IActionResult Error()

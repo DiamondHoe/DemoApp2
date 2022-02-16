@@ -42,7 +42,7 @@ namespace Demo2.Controllers
                 var context = GetContext();
                 context.People.Add(_Person);
                 context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new { message = "Pomyślnie dodano osobę" });
             }
             else
             {

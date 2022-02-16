@@ -46,12 +46,13 @@ namespace Demo2.Controllers
             {
                 return View();
             }
+
             if (ModelState.IsValid)
             {
                 var context = GetContext();
                 context.Update(person);
                 context.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home", new {message = "Pomyślnie edytowano osobę" });
             }
             return View(person);
         }
